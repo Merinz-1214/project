@@ -1,7 +1,6 @@
 package com.sevenmartsupermarket.tests;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import com.sevenmartsupermarket.base.Base;
@@ -18,7 +17,7 @@ public class AdminUsersTest extends Base {
 		loginpage = new LoginPage(driver);
 		loginpage.login();
 		adminuserspage=new AdminUsersPage(driver);
-		adminuserspage.addNewUser("mvcbccvcv", "1234567");
+		adminuserspage.addNewUser("useradmindsd", "1234567");
 		adminuserspage.userCreatedMessage();
 		boolean userCreatedSuccessMsg=adminuserspage.userCreatedMessage();
 		Assert.assertTrue(userCreatedSuccessMsg);		
