@@ -9,14 +9,17 @@ public class HomePage {
 	WebDriver driver;
 	@FindBy(xpath = "//a[@class='d-block']")
 	WebElement profileName;
-	
+
 	public HomePage(WebDriver driver) {
-		this.driver=driver;
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
-		
+
 	}
+
 	public String getProfileName() {
-		return profileName.getText();
+		String s = profileName.getText();
+		System.out.println(s);
+		return s;
 	}
 
 }

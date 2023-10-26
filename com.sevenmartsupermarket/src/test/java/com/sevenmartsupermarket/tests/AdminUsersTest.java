@@ -1,6 +1,7 @@
 package com.sevenmartsupermarket.tests;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import com.sevenmartsupermarket.base.Base;
@@ -13,18 +14,14 @@ public class AdminUsersTest extends Base {
 	AdminUsersPage adminuserspage;
 	
 	@Test(retryAnalyzer = RetryAnalyser.class)
-	public void verifyAdminUsersPage() {
+	public void verifyNewUserAddition() {
 		loginpage = new LoginPage(driver);
 		loginpage.login();
 		adminuserspage=new AdminUsersPage(driver);
-		adminuserspage.clickOnAdminUsersPage();
-		adminuserspage.clickOnNewLabel();
-		adminuserspage.userNameField("Appu");
-		adminuserspage.passwordField("appu");
-		adminuserspage.selectUserType();
-		adminuserspage.clickOnSave();
+		adminuserspage.addNewUser("mvcbccvcv", "1234567");
+		adminuserspage.userCreatedMessage();
 		boolean userCreatedSuccessMsg=adminuserspage.userCreatedMessage();
-		Assert.assertTrue(userCreatedSuccessMsg);	
+		Assert.assertTrue(userCreatedSuccessMsg);		
 	}
 	
 	@Test
@@ -33,6 +30,7 @@ public class AdminUsersTest extends Base {
 		loginpage.login();
 		adminuserspage=new AdminUsersPage(driver);
 		adminuserspage.clickOnAdminUsersPage();
-		adminuserspage.deactivateUser("Wendy");
+		adminuserspage.deactivateUser("Menon");
 	}
+	
 }

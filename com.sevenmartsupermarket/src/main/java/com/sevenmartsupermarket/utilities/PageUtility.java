@@ -3,7 +3,6 @@ package com.sevenmartsupermarket.utilities;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.devtools.idealized.Javascript;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
@@ -49,15 +48,21 @@ public class PageUtility {
 	public void doubleClickOnElement(WebElement element) {
 		actions.doubleClick(element).build().perform();
 	}
+	public void getTextOfElement(WebElement element) {
+		String s=driver.switchTo().alert().getText();
+		System.out.println(s);
+	}
 	
 	public void accept_Alert() {
 		driver.switchTo().alert().accept();
+	}
+	public void dismissAlert() {
+		driver.switchTo().alert().dismiss();  
 	}
 	
 	public void jsClick(WebElement element) {
 		js.executeScript("arguments[0].click();", element);
 	}
 }
-	//scroll into view
-	//get text of alert
-	//dismiss alert
+	
+	

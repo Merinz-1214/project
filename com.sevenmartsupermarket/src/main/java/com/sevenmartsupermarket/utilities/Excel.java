@@ -28,6 +28,15 @@ public class Excel {
 				System.out.println("File not found");
 			}
 		}
+		public Object[][] getMultiDiamensionalData(int row, int column){  //dataProvider
+			Object [][] data=new Object[row][column];
+			for(int i=0;i<row;i++) {
+				for(int j=0;j<column;j++) {
+					data[i][j]=getCellData(i, j);
+				}
+			}
+			return data;
+		}
 
 		public String getCellData(int rowNo, int columnNo) {
 			row = sheet.getRow(rowNo);
@@ -48,6 +57,7 @@ public class Excel {
 				return null;
 
 			}
+			
 		}}
 
 
