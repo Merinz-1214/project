@@ -18,7 +18,7 @@ public class PushNotificationsTest extends Base {
 		loginpage = new LoginPage(driver);
 		loginpage.login();
 		pushnotificationspage = new PushNotificationsPage(driver);
-		excel.setExcelFile("notifications", "PushNotifications"); // sheet name,tab name
+		excel.setExcelFile("notifications", "PushNotifications"); 
 		pushnotificationspage.clickOnPushNotification();
 		String title = excel.getCellData(0, 0);
 		String description = excel.getCellData(0, 1);

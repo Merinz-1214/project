@@ -23,46 +23,48 @@ public class PageUtility {
 		select.selectByIndex(index);
 
 	}
+
 	public void scrollAndClick(WebElement element) {
-		int index=0;
-		while(! isClickHappened(element)) {
-			js.executeScript("window.scrollBy(0,"+index+")");
-			index=index+3;
-		}}
-		public boolean isClickHappened(WebElement element) {
-			try {
-				element.click();
-				return true;
-			} catch (Exception e) {
-				return false;
-				
-			}
+		int index = 0;
+		while (!isClickHappened(element)) {
+			js.executeScript("window.scrollBy(0," + index + ")");
+			index = index + 3;
 		}
-	
+	}
+
+	public boolean isClickHappened(WebElement element) {
+		try {
+			element.click();
+			return true;
+		} catch (Exception e) {
+			return false;
+
+		}
+	}
 
 	public void select_byVisibleText(WebElement element, String visibleText) {
 		select = new Select(element);
 		select.selectByVisibleText(visibleText);
 	}
-	
+
 	public void doubleClickOnElement(WebElement element) {
 		actions.doubleClick(element).build().perform();
 	}
+
 	public void getTextOfElement(WebElement element) {
-		String s=driver.switchTo().alert().getText();
+		String s = driver.switchTo().alert().getText();
 		System.out.println(s);
 	}
-	
+
 	public void accept_Alert() {
 		driver.switchTo().alert().accept();
 	}
+
 	public void dismissAlert() {
-		driver.switchTo().alert().dismiss();  
+		driver.switchTo().alert().dismiss();
 	}
-	
+
 	public void jsClick(WebElement element) {
 		js.executeScript("arguments[0].click();", element);
 	}
 }
-	
-	
