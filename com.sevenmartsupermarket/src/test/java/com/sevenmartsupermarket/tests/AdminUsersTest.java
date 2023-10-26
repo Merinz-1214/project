@@ -17,7 +17,7 @@ public class AdminUsersTest extends Base {
 		loginpage = new LoginPage(driver);
 		loginpage.login();
 		adminuserspage=new AdminUsersPage(driver);
-		adminuserspage.addNewUser("useradmindsd", "1234567");
+		adminuserspage.addNewUser("userad  mindsd", "1234567");
 		adminuserspage.userCreatedMessage();
 		boolean userCreatedSuccessMsg=adminuserspage.userCreatedMessage();
 		Assert.assertTrue(userCreatedSuccessMsg);		
