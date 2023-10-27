@@ -42,31 +42,20 @@ public class ManageDeliveryBoyPage {
 		click.click();
 	}
 
-	public void openDeliveryBoyPage() {
-		LoginPage loginPage = new LoginPage(driver);
-		String userName = properties.getProperty("username");
-		String password = properties.getProperty("password");
-		loginPage.login(userName, password);
-		clickOnManageDeliveryBoy();
-	}
-
 	public void clickOnNewButton() {
 		new_click.click();
 	}
 
-	public void enterDeliveryBoyDetails() {
-		String deliveryBoyName = GeneralUtility.getFirstName();
+	public void enterDeliveryBoyDetails(String deliveryBoyName, String deliveryBoyEmail, String phNo) {
 		EnterNameField.sendKeys(deliveryBoyName);
-		String deliveryBoyEmail = deliveryBoyName + "@gmail.com";
 		emailField.sendKeys(deliveryBoyEmail);
-		String deliveryBoyPhone = properties.getProperty("phone");
-		phoneNoField.sendKeys(deliveryBoyPhone);
-		String deliveryBoyAddress = GeneralUtility.getStreetAdress();
-		addressField.sendKeys(deliveryBoyAddress);
-		userNameField.sendKeys(deliveryBoyName);
-		String deliverBoyPassword = properties.getProperty("newuserpassword");
-		passwordField.sendKeys(deliverBoyPassword);
+		phoneNoField.sendKeys(phNo);
+	}
 
+	public void enterDeliveryBoyDetails1(String deliveryBoyAddress, String userName, String deliveryBoyPassword) {
+		addressField.sendKeys(deliveryBoyAddress);
+		userNameField.sendKeys(userName);
+        passwordField.sendKeys(deliveryBoyPassword);
 	}
 
 	public void clickOnSave() {
@@ -79,15 +68,6 @@ public class ManageDeliveryBoyPage {
 	}
 
 	public ManageDeliveryBoyPage(WebDriver driver) {
-		try {
-			fi = new FileInputStream(Constants.CONFIG_FILE_PATH);
-			properties.load(fi);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("File not found");
-		}
-
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}

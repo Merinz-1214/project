@@ -5,6 +5,7 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -15,6 +16,7 @@ public class LoginPage {
 	Properties properties = new Properties();
 	FileInputStream fi;
 	@FindBy(xpath = "(//input[@class='form-control'])[1]")
+	@CacheLookup
 	private WebElement User_name_Field;
 	@FindBy(xpath = "(//input[@class='form-control'])[2]")
 	private WebElement password_Field;
@@ -51,6 +53,7 @@ public class LoginPage {
 		signin_click.click();
 
 	}
+
 	public void login() {
 		String username = properties.getProperty("username");// add key in brackets
 		String password = properties.getProperty("password");

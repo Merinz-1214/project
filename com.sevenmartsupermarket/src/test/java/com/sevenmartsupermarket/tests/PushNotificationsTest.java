@@ -18,12 +18,11 @@ public class PushNotificationsTest extends Base {
 		loginpage = new LoginPage(driver);
 		loginpage.login();
 		pushnotificationspage = new PushNotificationsPage(driver);
-		excel.setExcelFile("notifications", "PushNotifications"); 
+		excel.setExcelFile("notifications","PushNotifications"); 
 		pushnotificationspage.clickOnPushNotification();
 		String title = excel.getCellData(0, 0);
 		String description = excel.getCellData(0, 1);
 		pushnotificationspage.sendNotification(title, description);
-		pushnotificationspage.alertIsDisplayed();
 		boolean alertSucessMessageActual = pushnotificationspage.alertIsDisplayed();
 		Assert.assertTrue(alertSucessMessageActual);
 	}

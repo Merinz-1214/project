@@ -11,7 +11,7 @@ public class Constants {
 			+ "//src//main//resources//ExcelFiles//";
 	public static final String SCREENSHOT_FILEPATH=System.getProperty("user.dir")+"//screenshots//";
     public static final String EXTENT_REPORT_FILEPATH=System.getProperty("user.dir")+"//ExtentReports";
-   
+    public static final String CONFIG_MNG_DELIVERY_BOY_CREDENTIALS=System.getProperty("user.dir")+"//src//main//resources//ConfigForMngDlvryBoys.properties";
     /**Login TestCase data**/
     @DataProvider(name="AdminUsers_")
 	public Object[][] CredentialDataAdminUser()

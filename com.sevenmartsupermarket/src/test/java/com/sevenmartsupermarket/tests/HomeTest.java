@@ -1,5 +1,6 @@
 package com.sevenmartsupermarket.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.sevenmartsupermarket.base.Base;
@@ -15,7 +16,8 @@ public class HomeTest extends Base {
 	    loginPage = new LoginPage(driver);
 		loginPage.login();
 		homepage = new HomePage(driver);
-		homepage.getProfileName();
+		boolean s=homepage.getProfileName1();
+		Assert.assertTrue(s);
 		
 	}
 }

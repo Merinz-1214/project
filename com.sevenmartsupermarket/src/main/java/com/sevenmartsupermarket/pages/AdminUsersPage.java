@@ -6,6 +6,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -32,7 +33,7 @@ public class AdminUsersPage {
 	private WebElement save_click;
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
 	private WebElement userCreatedMsgField;
-
+    
 	public void clickOnAdminUsersPage() {
 		adminUsers_click.click();
 	}
@@ -57,7 +58,12 @@ public class AdminUsersPage {
 	public void clickOnSave() {
 		save_click.click();
 	}
-
+     
+	/***
+	 * This method is used for adding new user
+	 * @param username
+	 * @param password
+	 */
 	public void addNewUser(String username, String password) {
 		clickOnAdminUsersPage();
 		clickOnNewLabel();
